@@ -1,0 +1,20 @@
+.form-container{
+    width:50%;
+    border-style: solid;
+    border-color: black;
+    padding: 12px;
+    margin:auto;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.form-container h1{
+    color: red;
+    background: blue;
+}
+
+.form-container a{
+    
+}
