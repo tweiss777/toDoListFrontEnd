@@ -1,14 +1,19 @@
 <p>
     login works!
+    {{testVar}}
   </p>
   <!-- form itself -->
-  <div class="form-container">    
+  <div class="form-container">
     <h1>Welcome to the todolist</h1>
-    <form method="POST">
       <label>Email</label>
-      <input type="text" placeholder="Email"/>
+      <input type="text" placeholder="Email" [(ngModel)]="user.email"/><br/>
       <label>Password</label>
-      <input type="password" placeholder="Password"/>
-    </form>
+      <input type="password" placeholder="Password" [(ngModel)]="user.password"/>
+      <!-- Button container -->
+      <div class="btn-container">
+        <button (click)="loginBtn()">Login</button>
+        <button>Create Account</button>
+      </div>
+      <!-- Create account should be an anchor tag -->
   </div>
   

@@ -1,20 +1,58 @@
 .form-container{
-    width:50%;
     border-style: solid;
     border-color: black;
-    padding: 12px;
     margin:auto;
-    align-items: center;
-    text-align: center;
+    width: 50%;
+    position: absolute;
     font-family: Arial, Helvetica, sans-serif;
     
 }
-
 .form-container h1{
     color: red;
     background: blue;
+    text-align: center;
 }
 
-.form-container a{
+.btn-container{
     
+    position: center;
+    text-align: center;
+}
+.btn-container button{
+    color: red;
+    background-color: blue;
+    margin-left: 20px;
+    font-size: 24pt;
+    border-radius: 24px;
+}
+
+.btn-container button:hover{
+    color: aqua;
+    background-color: purple;
+}
+
+
+
+label, input {
+    /* in order to define widths */
+    display: inline-block;
+}
+
+label {
+    width: 30%;
+    /* positions the label text beside the input */
+    text-align: right;
+}
+
+label + input {
+    width: 30%;
+    /* large margin-right to force the next element to the new-line
+       and margin-left to create a gutter between the label and input */
+    margin: 0 30% 0 4%;
+}
+
+/* only the submit button is matched by this selector,
+   but to be sure you could use an id or class for that button */
+input + input {
+    float: right;
 }
