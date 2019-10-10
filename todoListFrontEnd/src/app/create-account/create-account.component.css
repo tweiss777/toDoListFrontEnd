@@ -1,8 +1,16 @@
 .create-account-container{
     font-family: Arial, Helvetica, sans-serif;
     border-style: solid;
+    
 }
 .create-account-container h1{
     text-align: center;
 
+}
+
+input,label{
+    margin: 5px;
+}
+input {
+    width: 90%;
 }
