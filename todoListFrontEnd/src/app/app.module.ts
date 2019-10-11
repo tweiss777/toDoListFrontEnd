@@ -5,6 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { RouterModule, Routes} from '@angular/router';
+
+
+const routes: Routes = [
+   {path: 'login', component: LoginComponent},
+   {path: 'create_account', component: CreateAccountComponent},
+
+];
 
 @NgModule({
    // this is where your components get registered
@@ -17,11 +25,15 @@ import { CreateAccountComponent } from './create-account/create-account.componen
    imports: [
       BrowserModule,
       AppRoutingModule,
-      FormsModule
+      FormsModule,
+      RouterModule.forRoot(routes,{enableTracing:false})
+      
    ],
    providers: [],
    bootstrap: [
       AppComponent
    ]
 })
+
+
 export class AppModule { }
