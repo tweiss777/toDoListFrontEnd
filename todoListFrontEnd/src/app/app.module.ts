@@ -26,7 +26,7 @@ const routes: Routes = [
       BrowserModule,
       AppRoutingModule,
       FormsModule,
-      RouterModule.forRoot(routes,{enableTracing:false})
+      RouterModule.forRoot(routes)
       
    ],
    providers: [],
