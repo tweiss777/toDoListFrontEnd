@@ -9,9 +9,9 @@ import { RouterModule, Routes} from '@angular/router';
 
 
 const routes: Routes = [
-   {path: '',redirectTo: 'login', pathMatch: 'full'},
-   {path: 'login', component: LoginComponent},
-   {path: 'create_account', component: CreateAccountComponent},
+   {path: '',redirectTo: 'login', pathMatch: 'full'}, // Redirects the user to the login component.
+   {path: 'login', component: LoginComponent}, //Route for the login component
+   {path: 'create_account', component: CreateAccountComponent}, // route for the create account component
 
 ];
 

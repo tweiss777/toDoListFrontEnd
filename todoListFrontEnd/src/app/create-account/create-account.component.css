@@ -5,7 +5,14 @@
 }
 .create-account-container h1{
     text-align: center;
+    
+}
+.create-account-container a{
 
+    margin: 15px;
+    position: absolute;
+    border-style: solid;
+    border-color: blue;
 }
 
 input,label{
@@ -14,3 +21,4 @@ input,label{
 input {
     width: 90%;
 }
+
