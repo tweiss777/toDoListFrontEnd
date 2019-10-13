@@ -18,14 +18,13 @@ export class CreateAccountComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+  }
+  
+  // This function 
+  createAccount() {
+    console.log("Create account button pressed!")
   }
 
-  // used for debugging purposes
-  printToConsole(): void{
-    console.log(this.newAccount.first_name)
-    console.log(this.newAccount.last_name)
-    console.log(this.newAccount.email)
-    console.log(this.newAccount.password)
-  }
 
 }
