@@ -1,22 +1,37 @@
 <p>create-account works!</p>
 <div class="create-account-container">
-    <!-- you need to add angular routing -->
+    
+    <!-- this div holds the form validation errors if there are any -->
+    <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)">
+        <div *ngIf="first_name.errors?.required">
+            First name is required
+        </div>
+        <div *ngIf="first_name.errors?.minlength">
+            your firstname must be greater than 20 characters.
+        </div>
+    </div>
+
     <a [routerLink]="['/login']">back</a>
     <h1>Create New Account</h1>
     
-    <label>First Name</label>
-    <input type="text" value="First Name" required [(ngModel)]="newAccount.first_name" /><br/>
+
+    <form  [formGroup]="createAccountForm" (ngSubmit)=createAccount()>
+        <label>First Name</label>
+        <input id="first_name" type="text" placeholder="First Name" formControlName="first_name"/><br/>
+        <label>Last Name</label>
+        <input type="text" placeholder="Last Name" required formControlName="last_name"/><br/>
+        
+        <label>Email</label>
+        <input type="email" placeholder="Email" required formControlName="email"/><br/>
+        
+        <label>Password</label>
+        <input type="password" required formControlName="password"><br/>
+        <!-- This button will be used for debugging purposes -->
+        <button type="submit">Create Account</button>
+    </form >   
+        
     
-    <label>Last Name</label>
-    <input type="text" value="Last Name" required [(ngModel)]="newAccount.last_name"/><br/>
-    
-    <label>Email</label>
-    <input type="email" value="Email" required [(ngModel)]="newAccount.email"/><br/>
-    
-    <label>Password</label>
-    <input type="password" required [(ngModel)]="newAccount.password"><br/>
-    <!-- This button will be used for debugging purposes -->
-    <button (click)="createAccount()">print to console</button>
+
 
 
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from './../models/Account';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-account',
@@ -10,20 +11,37 @@ export class CreateAccountComponent implements OnInit {
   
   newAccount: Account = {
     first_name: '',
-    last_name: '', 
+    last_name: '',
     email: '',
     password: '',
   };
 
+  createAccountForm: FormGroup;
+
   constructor() { }
 
   ngOnInit() {
-
+    {
+      this.createAccountForm = new FormGroup({
+        'first_name': new FormControl(this.newAccount.first_name,[Validators.required, Validators.minLength(20)]),
+        'last_name': new FormControl(this.newAccount.last_name,[Validators.required, Validators.minLength(20)]),
+        'email': new FormControl(this.newAccount.email,[Validators.required,Validators.minLength(20)]),
+        'password': new FormControl(this.newAccount.password,[Validators.required,Validators.minLength(20)])
+      },
+        
+      );
+    }
   }
-  
-  // This function 
+
+  get first_name(){
+    return this.createAccountForm.get('first_name');
+  }
+
+  // This function
   createAccount() {
-    console.log("Create account button pressed!")
+    console.log('Create account button pressed!')
+    
+
   }
 
 
