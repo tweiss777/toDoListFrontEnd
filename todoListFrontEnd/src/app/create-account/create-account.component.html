@@ -22,22 +22,22 @@
         </div>
     </div>
     
-    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="validationErrors">
         <div *ngIf="email.errors?.required">
             email is required
         </div>
 
-        <div *ngIf="email.errors?.minlength">
-            email must be greater than 20 characters
+        <div *ngIf="email.errors?.pattern">
+            the email you entered is invalid
         </div>
     </div>
-    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="validationErrors">
         <div *ngIf="password.errors?.required">
             Theres no way your are creating an account without a password
         </div>
 
         <div *ngIf="password.errors?.required">
-            your password must be longer than 20 characters.
+            your password must be 6 characters or longer.
         </div>        
     </div>
 

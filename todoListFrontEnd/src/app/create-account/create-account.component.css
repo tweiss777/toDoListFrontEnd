@@ -8,6 +8,10 @@
     
 }
 
+.validationErrors{
+    color: red;
+
+}
 .create-account-container button{
     border-style: solid;
     border-color: rgb(255, 0, 0);

@@ -27,9 +27,9 @@ export class CreateAccountComponent implements OnInit {
         
         'last_name': new FormControl(this.newAccount.last_name,[Validators.required, Validators.minLength(20)]),
         
-        'email': new FormControl(this.newAccount.email,[Validators.required,Validators.minLength(20)]),
+        'email': new FormControl(this.newAccount.email,[Validators.required,Validators.pattern('^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})')]),
         
-        'password': new FormControl(this.newAccount.password,[Validators.required,Validators.minLength(20)])
+        'password': new FormControl(this.newAccount.password,[Validators.required,Validators.minLength(6)])
       },
         
       );
