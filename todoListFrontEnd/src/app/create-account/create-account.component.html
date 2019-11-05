@@ -2,14 +2,45 @@
 <div class="create-account-container">
     
     <!-- this div holds the form validation errors if there are any -->
-    <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)">
+    <!-- firstname validator -->
+    <div *ngIf="first_name?.invalid && (first_name?.dirty || first_name?.touched)" class="validationErrors">
         <div *ngIf="first_name.errors?.required">
             First name is required
         </div>
         <div *ngIf="first_name.errors?.minlength">
-            your firstname must be greater than 20 characters.
+            your first name must be greater than 20 characters.
         </div>
     </div>
+    
+    <!-- last name validator -->
+     <div *ngIf="last_name?.invalid && (last_name?.dirty || last_name?.touched)" class="validationErrors">
+        <div *ngIf="last_name.errors?.required">
+            Last name is required
+        </div>
+        <div *ngIf="last_name.errors?.minlength">
+            your last name must be greater than 20 characters
+        </div>
+    </div>
+    
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <div *ngIf="email.errors?.required">
+            email is required
+        </div>
+
+        <div *ngIf="email.errors?.minlength">
+            email must be greater than 20 characters
+        </div>
+    </div>
+    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+        <div *ngIf="password.errors?.required">
+            Theres no way your are creating an account without a password
+        </div>
+
+        <div *ngIf="password.errors?.required">
+            your password must be longer than 20 characters.
+        </div>        
+    </div>
+
 
     <a [routerLink]="['/login']">back</a>
     <h1>Create New Account</h1>
@@ -19,7 +50,7 @@
         <label>First Name</label>
         <input id="first_name" type="text" placeholder="First Name" formControlName="first_name"/><br/>
         <label>Last Name</label>
-        <input type="text" placeholder="Last Name" required formControlName="last_name"/><br/>
+        <input id="last_name" type="text" placeholder="Last Name" required formControlName="last_name"/><br/>
         
         <label>Email</label>
         <input type="email" placeholder="Email" required formControlName="email"/><br/>
