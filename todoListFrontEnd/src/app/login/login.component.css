@@ -1,3 +1,8 @@
+.validationErrors{
+    color: red;
+}
+
+
 .form-container{
     border-style: solid;
     border-color: black;
@@ -21,6 +26,15 @@
 .btn-container button{
     color: red;
     background-color: blue;
+    margin-left: 20px;
+    font-size: 24pt;
+    border-radius: 24px;
+    
+}
+
+.btn-container button:disabled{
+    color: purple;
+    background-color: green;
     margin-left: 20px;
     font-size: 24pt;
     border-radius: 24px;

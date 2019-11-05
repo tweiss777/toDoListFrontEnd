@@ -1,19 +1,36 @@
-<p>
-    login works!
-    {{testVar}}
-  </p>
+
   <!-- form itself -->
   <div class="form-container">
-    <h1>Welcome to the todolist</h1>
+    
+<h1>Welcome to the todolist</h1>
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="validationErrors">
+      <span *ngIf="email.errors?.required">
+        email is required
+      </span>
+      <span *ngIf="email.errors?.pattern">
+        Invalid email format
+      </span> 
+    </div>
+    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="validationErrors">
+      <span *ngIf="password.errors?.required">
+        password is required
+      </span>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <label>Email</label>
-      <input type="text" placeholder="Email" [(ngModel)]="user.email"/><br/>
+      <input type="text" formControlName="email" placeholder="Email"/><br/>
       <label>Password</label>
-      <input type="password" placeholder="Password" [(ngModel)]="user.password"/>
+      <input type="password" formControlName="password" placeholder="Password"/>
       <!-- Button container -->
       <div class="btn-container">
-        <button (click)="loginBtn()">Login</button>
+        <button [disabled]="!loginForm.valid" type="submit">Login</button>
         <button [routerLink]="['/create_account']" >Create Account</button>
       </div>
+    </form>
+
+    
+      
       <!-- Create account should be an anchor tag -->
   </div>
   
