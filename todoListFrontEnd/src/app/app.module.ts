@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { RouterModule, Routes} from '@angular/router';
+import { HttpClientModule} from '@angular/common/http';
 
 
 const routes: Routes = [
@@ -21,15 +22,16 @@ const routes: Routes = [
       AppComponent,
       LoginComponent,
       CreateAccountComponent,
-      
+
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       FormsModule,
       ReactiveFormsModule,
+      HttpClientModule,
       RouterModule.forRoot(routes)
-      
+
    ],
    providers: [],
    bootstrap: [

@@ -1,6 +1,8 @@
+import { CreateAccountService } from './../create-account.service';
 import { Component, OnInit } from '@angular/core';
 import { Account } from './../models/Account';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-create-account',
@@ -18,14 +20,14 @@ export class CreateAccountComponent implements OnInit {
 
   createAccountForm: FormGroup;
 
-  constructor() { }
+  constructor(private cas: CreateAccountService) { }
 
   ngOnInit() {
     {
       this.createAccountForm = new FormGroup({
-        'first_name': new FormControl(this.newAccount.first_name,[Validators.required, Validators.minLength(20)]),
+        'first_name': new FormControl(this.newAccount.first_name,[Validators.required, Validators.minLength(2)]),
         
-        'last_name': new FormControl(this.newAccount.last_name,[Validators.required, Validators.minLength(20)]),
+        'last_name': new FormControl(this.newAccount.last_name,[Validators.required, Validators.minLength(2)]),
         
         'email': new FormControl(this.newAccount.email,[Validators.required,Validators.pattern('^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})')]),
         
@@ -53,12 +55,14 @@ export class CreateAccountComponent implements OnInit {
   }
 
   // #endregion
+  // Function used for debugging purposes
+  printToConsole(){
+    console.log(this.createAccountForm.get('first_name').value);
+  }
 
   // This function
   createAccount() {
-    console.log('Create account button pressed!')
-    
-
+    this.cas.createAccount(this.createAccountForm);
   }
 
 
