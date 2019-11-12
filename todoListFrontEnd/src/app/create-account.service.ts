@@ -40,12 +40,7 @@ export class CreateAccountService {
     }
     const headers = new HttpHeaders()
     headers.append('Content-Type','application/json')
-    // tslint:disable-next-line: ban-types
-    // this.params = new HttpParams()
-    // this.params.set('firtst_name',accountform.get('first_name').value);
-    // this.params.set('last_name',accountform.get('last_name').value);
-    // this.params.set('email',accountform.get('email').value);
-    // this.params.set('password',accountform.get('password').value);
+
     return this.http.post(this.apiEndpoint, jsonData, {headers} ).subscribe(response => {console.log(response)});
 
   }
