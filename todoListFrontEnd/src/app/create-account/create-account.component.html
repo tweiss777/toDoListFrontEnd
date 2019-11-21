@@ -44,6 +44,9 @@
     <a [routerLink]="['/login']">back</a>
     <h1>Create New Account</h1>
     
+    <p *ngIf="cas.message">
+        {{cas.message}}
+    </p>
 
     <form [formGroup]="createAccountForm" (ngSubmit)="createAccount()">
         <label>First Name</label>

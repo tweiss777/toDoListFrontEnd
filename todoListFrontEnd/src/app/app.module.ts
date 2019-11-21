@@ -1,3 +1,4 @@
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
@@ -9,11 +10,12 @@ import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 
 
+
 const routes: Routes = [
    {path: '',redirectTo: 'login', pathMatch: 'full'}, // Redirects the user to the login component.
    {path: 'login', component: LoginComponent}, //Route for the login component
    {path: 'create_account', component: CreateAccountComponent}, // route for the create account component
-
+   {path: 'todolist', component: ToDoListComponent} // route for the todo-list 
 ];
 
 @NgModule({
@@ -22,6 +24,7 @@ const routes: Routes = [
       AppComponent,
       LoginComponent,
       CreateAccountComponent,
+      ToDoListComponent
 
    ],
    imports: [

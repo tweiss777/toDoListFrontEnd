@@ -8,6 +8,7 @@ import {catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CreateAccountService {
+  message: any;
   params: HttpParams;
   apiEndpoint: string = 'http://127.0.0.1:8000/todolist/create_account';
   constructor(private http: HttpClient) { }
@@ -41,7 +42,9 @@ export class CreateAccountService {
     const headers = new HttpHeaders()
     headers.append('Content-Type','application/json')
 
-    return this.http.post(this.apiEndpoint, jsonData, {headers} ).subscribe(response => {console.log(response)});
+    return this.http.post(this.apiEndpoint, jsonData, {headers} ).subscribe(response => {console.log(response);
+      this.message = response['message'];}
+        );
 
   }
 

@@ -1,36 +1,31 @@
 
-  <!-- form itself -->
-  <div class="form-container">
-    
-<h1>Welcome to the todolist</h1>
-    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="validationErrors">
-      <span *ngIf="email.errors?.required">
-        email is required
-      </span>
-      <span *ngIf="email.errors?.pattern">
-        Invalid email format
-      </span> 
-    </div>
-    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="validationErrors">
-      <span *ngIf="password.errors?.required">
-        password is required
-      </span>
-    </div>
-
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-      <label>Email</label>
-      <input type="text" formControlName="email" placeholder="Email"/><br/>
-      <label>Password</label>
-      <input type="password" formControlName="password" placeholder="Password"/>
-      <!-- Button container -->
-      <div class="btn-container">
-        <button [disabled]="!loginForm.valid" type="submit">Login</button>
-        <button [routerLink]="['/create_account']" >Create Account</button>
+<!-- form itself -->
+<!-- if there is no token present the user sees this part of the view -->
+<div class="form-container">   
+  <h1>Welcome to the todolist</h1>
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="validationErrors">
+        <span *ngIf="email.errors?.required">
+          email is required
+        </span>
+        <span *ngIf="email.errors?.pattern">
+          Invalid email format
+        </span> 
       </div>
-    </form>
+      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="validationErrors">
+        <span *ngIf="password.errors?.required">
+          password is required
+        </span>
+      </div>
 
-    
-      
-      <!-- Create account should be an anchor tag -->
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <label>Email</label>
+        <input type="text" formControlName="email" placeholder="Email"/><br/>
+        <label>Password</label>
+        <input type="password" formControlName="password" placeholder="Password"/>
+        <!-- Button container -->
+        <div class="btn-container">
+          <button [disabled]="!loginForm.valid" type="submit">Login</button>
+          <button [routerLink]="['/create_account']" >Create Account</button>
+        </div>
+      </form>
   </div>
-  

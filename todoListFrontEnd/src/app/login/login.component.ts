@@ -1,6 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from './../models/User';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user-service.service';
 
 @Component({
   // The selector shows you how the component should be called in html
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   };
 
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -39,11 +40,11 @@ export class LoginComponent implements OnInit {
   //#endregion
 
   // login button
-  login():void{
+  login() {
     // send username and password into a post request to the server.
     console.log("Login button pressed");
+    this.userService.login(this.loginForm);
 
   }
   
-
 }
