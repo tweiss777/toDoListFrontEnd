@@ -1,11 +1,14 @@
 <!-- <h1>Welcome {{user.first_name}} </h1> -->
 <h1>Welcome Bob!</h1>
 
-<button class="btn-logout" [routerLink]="['/login']" routerLinkActive="router-link-active" >Lougout</button> 
+<button class="btn" [routerLink]="['/login']" routerLinkActive="router-link-active" >Lougout</button> 
 
+<!-- Button to create a todo item -->
+<button class="btn" (click)="create_todoItem()">Create item</button>
+<!-- ul should be an ngfor -->
 <ul class="list-container">
     <li>
-        <span class="list-item">(item number)</span> item description <button>edit</button>
-        <button>delete</button>
+        <span class="list-item">(item number)</span> item description <button class="btn" (click)="edit()">edit</button>
+        <button class="btn" (click)="delete()">delete</button>
     </li> 
 </ul>
