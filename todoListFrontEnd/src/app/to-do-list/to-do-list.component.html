@@ -1,14 +1,18 @@
 <!-- <h1>Welcome {{user.first_name}} </h1> -->
+<!-- <div *ngIf="expression" -->
+
 <h1>Welcome Bob!</h1>
 
 <button class="btn" [routerLink]="['/login']" routerLinkActive="router-link-active" >Lougout</button> 
 
 <!-- Button to create a todo item -->
-<button class="btn" (click)="create_todoItem()">Create item</button>
+<button class="btn" (click)="createList()">Create List</button>
 <!-- ul should be an ngfor -->
+<!-- this sho -->
+
 <ul class="list-container">
-    <li>
-        <span class="list-item">(item number)</span> item description <button class="btn" (click)="edit()">edit</button>
+    <li [routerLink]="['/list-items']" routerLinkActive="router-link-active" >
+        <span class="list-item">(item number)</span> item description
         <button class="btn" (click)="delete()">delete</button>
     </li> 
 </ul>

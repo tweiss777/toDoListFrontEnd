@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user-service.service'
 @Component({
@@ -7,32 +8,26 @@ import {UserService} from '../user-service.service'
 })
 export class ToDoListComponent implements OnInit {
 
-  constructor(userService: UserService) { }
-  todolist: any = [];
+  constructor(private userService: UserService) { }
+  response: any = [];
+
   ngOnInit() {
-    this.todolist = this.retrievelist();
+    this.response = this.userService.jsonData;
+    // for debugging purposes 
+    console.log(this.response);
   }
 
-edit(){
-  console.log('edit button pressed');
+  createList(){
+    console.log('create list button added');
+  }
+
+  delete(){
+    console.log('delete button pressed');
   // call function from user services
-}
+  }
 
-
-delete(){
-  console.log('delete button pressed');
-// call function from user services
-}
-
-create_todoItem(){
-  console.log('create item button pressed');
-  // call function from user services
-}
-
-// should be called in nginit
-retrievelist(){
-  console.log("retrieve list triggered")
-}
+  // should be called in nginit
+  
 
 }
 

@@ -2,6 +2,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from './../models/User';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   // The selector shows you how the component should be called in html
@@ -17,9 +18,10 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
+  error: string;
 
-
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+    private router: Router) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  //#region getters
+  //#region getters methods
   get email(){
     return this.loginForm.get('email');
   }
@@ -41,10 +43,16 @@ export class LoginComponent implements OnInit {
 
   // login button
   login() {
-    // send username and password into a post request to the server.
+    // send username and password into a post request to the server.    
     console.log("Login button pressed");
     this.userService.login(this.loginForm);
-
+    console.log(this.userService.jsonData);
+    if(this.userService.jsonData['user_id']){
+      this.router.navigate(['/todolist']);
+    }
+    else{
+      this.error = "Invalid Username or password";
+    }
   }
   
 }
