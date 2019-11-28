@@ -14,20 +14,22 @@ export class ToDoListComponent implements OnInit {
   ngOnInit() {
     this.response = this.userService.jsonData;
     // for debugging purposes 
+    console.log('from to do list component')
     console.log(this.response);
   }
 
   createList(){
     console.log('create list button added');
   }
-
+  // Deleite a list item
   delete(){
     console.log('delete button pressed');
   // call function from user services
   }
 
-  // should be called in nginit
-  
+  logout(){
+    this.userService.logout();
+  }  
 
 }
 

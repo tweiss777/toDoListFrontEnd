@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.loginForm);
     console.log(this.userService.jsonData);
     if(this.userService.jsonData['user_id']){
+      console.log(this.userService.jsonData['user_id']);
       this.router.navigate(['/todolist']);
     }
     else{

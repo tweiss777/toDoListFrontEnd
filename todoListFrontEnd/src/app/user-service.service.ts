@@ -35,19 +35,16 @@ export class UserService {
 
     // HttpClient.post makes the call to our Django API endpoint 
     // Note that in the DRF app the endpoint url is called ../login/.
-    this.http.post('http://127.0.0.1:8000/todolist/login',JSON.stringify(data),this.httpOptions).subscribe(
-      response => {
-        this.jsonData = response; 
-      },
-      err => {
-        this.errors = err;
-      }
-
-    );
+    // change this to either a promise or an async equivilant
+    this.http.post('http://127.0.0.1:8000/todolist/login', JSON.stringify(data), this.httpOptions).toPromise().then(response => {
+      this.jsonData = response;
+    }, err => {
+      this.errors = err;
+    });
   }
 
   public logout(){
-
+    this.jsonData = undefined;
   }
 
 
