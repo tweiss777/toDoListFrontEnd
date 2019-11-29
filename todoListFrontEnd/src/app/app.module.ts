@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
+import { ListEditorComponent } from './list-editor/list-editor.component';
 
 
 
@@ -15,17 +16,17 @@ const routes: Routes = [
    {path: '',redirectTo: 'login', pathMatch: 'full'}, // Redirects the user to the login component.
    {path: 'login', component: LoginComponent}, //Route for the login component
    {path: 'create_account', component: CreateAccountComponent}, // route for the create account component
-   {path: 'todolist', component: ToDoListComponent} // route for the todo-list 
+   {path: 'todolist', component: ToDoListComponent}, // route for the todo-list 
+   {path: 'listeditor', component: ListEditorComponent} // route for the list editor
 ];
 
 @NgModule({
-   // this is where your components get registered
    declarations: [
       AppComponent,
       LoginComponent,
       CreateAccountComponent,
-      ToDoListComponent
-
+      ToDoListComponent,
+      ListEditorComponent
    ],
    imports: [
       BrowserModule,
@@ -34,12 +35,12 @@ const routes: Routes = [
       ReactiveFormsModule,
       HttpClientModule,
       RouterModule.forRoot(routes)
-
    ],
    providers: [],
    bootstrap: [
       AppComponent
-   ]
+   ],
+   
 })
 
 

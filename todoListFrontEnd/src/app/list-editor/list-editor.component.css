@@ -1,0 +1,26 @@
+.btn {
+    color: red;
+    background-color: blue;
+    margin-left: 20px;
+    font-size: 24pt;
+    border-radius: 24px;
+    
+}
+
+.validationErrors{
+    color: red;
+}
+
+
+.create-list-container {
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    
+}
+
+input,label{
+    margin: 5px;
+}
+input {
+    width: 90%;
+}

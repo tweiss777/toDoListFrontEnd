@@ -1,18 +1,23 @@
-<!-- <h1>Welcome {{user.first_name}} </h1> -->
+<h1>Welcome {{response.first_name}} </h1>
 <!-- <div *ngIf="expression" -->
 
-<h1>Welcome Bob!</h1>
 
-<button class="btn" [routerLink]="['/login']" routerLinkActive="router-link-active" >Lougout</button> 
+
+<button class="btn" [routerLink]="['/login']" routerLinkActive="router-link-active" (click)="logout()" >Lougout</button> 
+
+<!-- put list editor below this comment -->
+<!-- should be in an ngif statement -->
+
+
 
 <!-- Button to create a todo item -->
-<button class="btn" (click)="createList()">Create List</button>
+<button class="btn" [routerLink]="['/listeditor']" routerLinkActive="router-link-active" >Create List</button>
 <!-- ul should be an ngfor -->
 <!-- this sho -->
 
-<ul class="list-container">
+<ul class="list-container" *ngFor="let list of response.todolists">
     <li [routerLink]="['/list-items']" routerLinkActive="router-link-active" >
-        <span class="list-item">(item number)</span> item description
+        <span class="list-item">(item)</span> {{list.list_name}}
         <button class="btn" (click)="delete()">delete</button>
     </li> 
 </ul>
