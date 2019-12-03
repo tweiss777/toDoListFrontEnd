@@ -1,35 +1,54 @@
 
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user-service.service'
+import { Router } from '@angular/router';
+import { ListService } from '../list.service';
 @Component({
   selector: 'app-to-do-list',
   templateUrl: './to-do-list.component.html',
   styleUrls: ['./to-do-list.component.css']
 })
 export class ToDoListComponent implements OnInit {
-
-  constructor(private userService: UserService) { }
+  
   response: any = [];
+  todolists: any = [];
+
+  
+  constructor(private userService: UserService,
+              private router: Router,
+              private listService: ListService) { }
 
   ngOnInit() {
+    this.listService.message = undefined;
     this.response = this.userService.jsonData;
-    // for debugging purposes 
+    this.todolists = this.response.todolists;
+    // for debugging purposes
+    if (this.response == undefined || this.response.length == 0) {
+      this.router.navigate(['/login'])
+    }
     console.log('from to do list component')
     console.log(this.response);
+
   }
 
-  createList(){
-    console.log('create list button added');
-  }
-  // Deleite a list item
-  delete(){
-    console.log('delete button pressed');
-  // call function from user services
+
+  deleteList(listName: string, listId: number, index: number) {
+    this.listService.message = undefined;
+    this.listService.deleteList(listName, listId);
+    this.todolists.splice(index, 1);
+    
   }
 
-  logout(){
+  editListName() {
+    console.log('edit list name pressed');
+  }
+
+
+
+
+  logout() {
     this.userService.logout();
-  }  
+  }
 
 }
 

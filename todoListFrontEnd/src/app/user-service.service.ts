@@ -6,10 +6,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
-  
+
   // http option used for making api calls
   private httpOptions: any;
-  
+
   // JSON data that is returned from the django rest framework
   public jsonData: any = [];
   // the user related to the token.
@@ -18,22 +18,22 @@ export class UserService {
   public errors: any = [];
 
   constructor(private http: HttpClient,
-              private route: Router) { 
+              private route: Router) {
     this.httpOptions = {
-      headers: new HttpHeaders({'Content-Type':'application/json' })
-    }
+      headers: new HttpHeaders({'Content-Type': 'application/json' })
+    };
   }
 
-  public login(user: FormGroup){
-    /* 
+  public login(user: FormGroup) {
+    /*
       We store the values taken from the FormGroup passed in into a dictionary called data
     */
     const data = {
       email : user.get('email').value,
       password : user.get('password').value,
-    }
+    };
 
-    // HttpClient.post makes the call to our Django API endpoint 
+    // HttpClient.post makes the call to our Django API endpoint
     // Note that in the DRF app the endpoint url is called ../login/.
     // change this to either a promise or an async equivilant
     this.http.post('http://127.0.0.1:8000/todolist/login', JSON.stringify(data), this.httpOptions).toPromise().then(response => {
@@ -43,7 +43,7 @@ export class UserService {
     });
   }
 
-  public logout(){
+  public logout() {
     this.jsonData = undefined;
   }
 
