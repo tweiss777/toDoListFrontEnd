@@ -15,9 +15,12 @@
 <!-- ul should be an ngfor -->
 <!-- this sho -->
 
-<ul class="list-container" *ngFor="let list of response.todolists">
+<div class="success" *ngIf="listService.message">
+    {{listService.message}}
+</div>
+<ul class="list-container" *ngFor="let list of todolists; index as i">
     <li [routerLink]="['/list-items']" routerLinkActive="router-link-active" >
-        <span class="list-item">(item)</span> {{list.list_name}}
-        <button class="btn" (click)="delete()">delete</button>
+        <span class="list-item">{{i + 1}}</span> {{list.list_name}}
+        <button class="btn" (click)="deleteList(list.list_name,list.list_id,i)">delete</button>
     </li> 
 </ul>

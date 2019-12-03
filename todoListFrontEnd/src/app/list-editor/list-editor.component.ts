@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ListService } from '../list.service';
+import { UserService } from '../user-service.service';
+
+
 
 @Component({
   selector: 'app-list-editor',
@@ -9,13 +13,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ListEditorComponent implements OnInit {
 
   createListForm: FormGroup;
-  list_name = "";
+  list_name = '';
   // component for the list editor
-  constructor() { }
+  constructor(private list_service: ListService,
+              private user_service: UserService
+              ) { }
 
   ngOnInit() {
+    this.list_service.message = undefined;
     this.createListForm = new FormGroup({
-      'list_name': new FormControl(this.list_name,[Validators.required])
+      'list_name': new FormControl(this.list_name, [Validators.required])
     })
   }
 
@@ -28,8 +35,9 @@ export class ListEditorComponent implements OnInit {
 
 
   createList(){
-    console.log("create list button pressed");
-    //the implementation should be done in the list service
+    this.list_service.createList(this.createListForm.get('list_name').value, this.user_service.jsonData.user_id);
+
+
   }
 
 

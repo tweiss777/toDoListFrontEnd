@@ -1,7 +1,11 @@
 
-<button class="btn" [routerLink]="['/todolist']" routerLinkActive="router-link-active" >Back</button>
 
 <div class="create-list-container">
+    <button class="btn" [routerLink]="['/todolist']" routerLinkActive="router-link-active" >Back</button>
+    
+    <div class="sucessMessage" *ngIf="list_service.message">
+        {{list_service.message}}
+    </div>
     <form [formGroup]="createListForm"(ngSubmit)="createList()">
         <div *ngIf="listName?.invalid && (listName?.dirty || listName?.touched)" class="validationErrors">
             <div *ngIf="listName.errors?.required">
@@ -10,5 +14,6 @@
         </div>
         <label>List name</label> <br/>
         <input id="list_name" type="text" placeholder="List Name" formControlName="list_name" />
+        <button class="btn" type="submit" [disabled]="!createListForm.valid">Create List</button>
     </form> 
 </div>
