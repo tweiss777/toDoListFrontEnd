@@ -9,9 +9,8 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { ListEditorComponent } from './list-editor/list-editor.component';
-import { ListItemsComponent } from './list-items/list-items.component';
 import { ItemEditorComponent } from './item-editor/item-editor.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const routes: Routes = [
@@ -29,15 +28,16 @@ const routes: Routes = [
       CreateAccountComponent,
       ToDoListComponent,
       ListEditorComponent,
-      ListItemsComponent,
       ItemEditorComponent
    ],
    imports: [
+      NgbModule,
       BrowserModule,
       AppRoutingModule,
       FormsModule,
       ReactiveFormsModule,
       HttpClientModule,
+
       RouterModule.forRoot(routes)
    ],
    providers: [],

@@ -6,21 +6,35 @@
 <button class="btn" [routerLink]="['/login']" routerLinkActive="router-link-active" (click)="logout()" >Lougout</button> 
 
 <!-- put list editor below this comment -->
-<!-- should be in an ngif statement -->
-
-
 
 <!-- Button to create a todo item -->
 <button class="btn" [routerLink]="['/listeditor']" routerLinkActive="router-link-active" >Create List</button>
-<!-- ul should be an ngfor -->
-<!-- this sho -->
 
+<!-- t -->
 <div class="success" *ngIf="listService.message">
     {{listService.message}}
 </div>
-<ul class="list-container" *ngFor="let list of todolists; index as i">
-    <li [routerLink]="['/list-items']" routerLinkActive="router-link-active" >
-        <span class="list-item">{{i + 1}}</span> {{list.list_name}}
-        <button class="btn" (click)="deleteList(list.list_name,list.list_id,i)">delete</button>
-    </li> 
-</ul>
+
+<!-- add the accordion module here -->
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    
+    <ul class="list-container" *ngFor="let list of todolists; index as i">
+        <ngb-panel>
+            <ng-template ngbPanelTitle>
+                <li>
+                    <span class="list-item">{{i + 1}}</span> {{list.list_name}}
+                    <button (click)="deleteList(list.list_name,list.list_id,i)">Delete List</button>
+                </li>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                <ul *ngFor="let item of list.list_items; index as j">
+                    <li>
+                        <span class="list-item">{{j + 1}}</span> {{item.item_name}}
+                        <button>delete item</button>
+                    </li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+    </ul>
+</ngb-accordion>
+

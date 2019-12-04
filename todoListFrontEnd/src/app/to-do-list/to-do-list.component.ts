@@ -9,11 +9,10 @@ import { ListService } from '../list.service';
   styleUrls: ['./to-do-list.component.css']
 })
 export class ToDoListComponent implements OnInit {
-  
+
   response: any = [];
   todolists: any = [];
 
-  
   constructor(private userService: UserService,
               private router: Router,
               private listService: ListService) { }
@@ -36,7 +35,11 @@ export class ToDoListComponent implements OnInit {
     this.listService.message = undefined;
     this.listService.deleteList(listName, listId);
     this.todolists.splice(index, 1);
-    
+
+  }
+  // this delete button delete for the item 
+  deleteItem(listItem: string, listId: number){
+    console.log('delete item button pressed');
   }
 
   editListName() {
