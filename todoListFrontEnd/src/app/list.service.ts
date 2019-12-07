@@ -49,6 +49,7 @@ export class ListService {
       list_id: listId,
     };
 
+    // Send the post request
     this.http.post('http://127.0.0.1:8000/todolist/delete_list', JSON.stringify(params),this.httpOptions).toPromise().then( response => {
       this.message = response['message'];
 
@@ -57,6 +58,24 @@ export class ListService {
 
   }
 
+  createItem(itemName: string, listId: number) {
+    console.log("create item from service triggered");
+    const params = {
+      item_name: itemName,
+      list_id: listId,
+    };
+    // Send the post request
+    this.http.post('http://127.0.0.1:8000/todolist/create_list_item', JSON.stringify(params),this.httpOptions).toPromise().then( response => {
+      this.message = response['message'];
+    });
+
+  }
+
+  deleteItem() {
+
+  }
+
+  //  Delete commented out function
   // retrieveLists(userId: number) {
   //   const params = {
   //     user_id: userId,

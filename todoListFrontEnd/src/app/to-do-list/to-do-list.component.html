@@ -27,10 +27,11 @@
                 </li>
             </ng-template>
             <ng-template ngbPanelContent>
+                <button [routerLink]="['/itemeditor']" routerLinkActive="router-link-active"  class="btn">Add item</button>
                 <ul *ngFor="let item of list.list_items; index as j">
                     <li>
                         <span class="list-item">{{j + 1}}</span> {{item.item_name}}
-                        <button>delete item</button>
+                        <button class="btn">delete item</button>
                     </li>
                 </ul>
             </ng-template>

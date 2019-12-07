@@ -18,7 +18,8 @@ const routes: Routes = [
    {path: 'login', component: LoginComponent}, //Route for the login component
    {path: 'create_account', component: CreateAccountComponent}, // route for the create account component
    {path: 'todolist', component: ToDoListComponent}, // route for the todo-list 
-   {path: 'listeditor', component: ListEditorComponent} // route for the list editor
+   {path: 'listeditor', component: ListEditorComponent}, // route for the list editor
+   {path: 'itemeditor', component: ItemEditorComponent}
 ];
 
 @NgModule({

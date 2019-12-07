@@ -1,1 +1,25 @@
-<p>item-editor works!</p>
+<div class="list-container">
+
+    <div class="succesMessage" *ngIf="user_service.message">
+    <!-- service message goes here -->
+        {{user_service.message}}
+    </div>
+    <button class="btn" [routerLink]="['/todolist']" routerLinkActive="router-link-active"> Back</button>
+
+    <form [formGroup]="createItemForm"(ngSubmit)="createItem()">
+        <div *ngIf="itemName?.invalid && (itemName?.dirty || itemName?.touched)" class="validationErrors">
+            <div *ngIf="itemName.errors?.required">
+                item name is required
+            </div>
+        </div>
+        <label>Item name</label> <br/>
+        <input id="item_name" type="text" placeholder="List Name" formControlName="item_name" />
+        <button class="btn" type="submit" [disabled]="!createItemForm.valid">Create List</button>
+    </form> 
+</div>
+
+
+
+
+
+
