@@ -15,9 +15,9 @@
     {{listService.message}}
 </div>
 
-<!-- add the accordion module here -->
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
     
+    <!-- Unorder list for the to do lists -->
     <ul class="list-container" *ngFor="let list of todolists; index as i">
         <ngb-panel>
             <ng-template ngbPanelTitle>
@@ -27,7 +27,10 @@
                 </li>
             </ng-template>
             <ng-template ngbPanelContent>
-                <button [routerLink]="['/itemeditor']" routerLinkActive="router-link-active"  class="btn">Add item</button>
+                <!-- <button class="btn" (click)="onSelectedListId(list.list_id)">Add item</button> -->
+                <app-item-editor [listId]="list.list_id"></app-item-editor>
+                
+                <!-- unordered list for to do list items -->
                 <ul *ngFor="let item of list.list_items; index as j">
                     <li>
                         <span class="list-item">{{j + 1}}</span> {{item.item_name}}

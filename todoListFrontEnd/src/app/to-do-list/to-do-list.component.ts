@@ -13,6 +13,8 @@ export class ToDoListComponent implements OnInit {
   response: any = [];
   todolists: any = [];
 
+  // this will change based on the list item selected
+  selectedListId: number;
   constructor(private userService: UserService,
               private router: Router,
               private listService: ListService) { }
@@ -28,6 +30,10 @@ export class ToDoListComponent implements OnInit {
     console.log('from to do list component')
     console.log(this.response);
 
+  }
+
+  onSelectedListId(listId: number){
+    this.selectedListId = listId;
   }
 
 
