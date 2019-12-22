@@ -10,6 +10,7 @@ import { UserService } from '../user-service.service';
 })
 export class ItemEditorComponent implements OnInit {
   @Input() listId: number;
+  @Input() index: number;
   createItemForm: FormGroup;
   item_name = '';
   constructor(private list_service: ListService,
@@ -30,7 +31,7 @@ export class ItemEditorComponent implements OnInit {
     console.log(this.listId);
     const item = this.createItemForm.get('item_name').value;
     console.log("create item button pressed");
-    this.list_service.createItem(item,this.listId);
+    this.list_service.createItem(item,this.listId,this.index);
   }
 
 

@@ -28,7 +28,7 @@
             </ng-template>
             <ng-template ngbPanelContent>
                 <!-- <button class="btn" (click)="onSelectedListId(list.list_id)">Add item</button> -->
-                <app-item-editor [listId]="list.list_id"></app-item-editor>
+                <app-item-editor [index]="i" [listId]="list.list_id"></app-item-editor>
                 
                 <!-- unordered list for to do list items -->
                 <ul *ngFor="let item of list.list_items; index as j">

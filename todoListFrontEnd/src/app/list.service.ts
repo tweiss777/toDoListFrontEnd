@@ -58,7 +58,7 @@ export class ListService {
 
   }
 
-  createItem(itemName: string, listId: number) {
+  createItem(itemName: string, listId: number,listIndex: number) {
     console.log("create item from service triggered");
     const params = {
       item_name: itemName,
@@ -67,12 +67,19 @@ export class ListService {
     // Send the post request
     this.http.post('http://127.0.0.1:8000/todolist/create_list_item', JSON.stringify(params),this.httpOptions).toPromise().then( response => {
       this.message = response['message'];
+      this.user_service.jsonData["todolists"][listIndex]["list_items"].push(
+        {
+          "item_name":itemName,
+          "list_id": listId,
+
+        }
+      )
     });
 
   }
 
   deleteItem() {
-
+    
   }
 
   //  Delete commented out function
